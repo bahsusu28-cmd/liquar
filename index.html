@@ -247,17 +247,43 @@
       border-radius: 20px;
       padding: 32px;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 150, 255, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
     }
 
     .feature-card:hover {
       background: rgba(255, 255, 255, 0.06);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 150, 255, 0.2);
+      border-color: rgba(0, 150, 255, 0.3);
     }
 
     .feature-icon {
       font-size: 48px;
       margin-bottom: 16px;
+      filter: drop-shadow(0 0 20px rgba(0, 150, 255, 0.5));
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.2) rotate(5deg);
+      filter: drop-shadow(0 0 30px rgba(0, 200, 255, 0.8));
     }
 
     .feature-card h3 {
@@ -351,6 +377,89 @@
         width: 100%;
       }
     }
+
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 20px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(0, 150, 255, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 150, 255, 0.3);
+    }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -382,37 +491,37 @@
       
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">🎨</div>
+          <div class="feature-icon">⚡</div>
           <h3>Полная кастомизация</h3>
           <p>Твой стиль, твои правила. Меняй всё от цвета пикселя до анимации фона</p>
         </div>
         
         <div class="feature-card">
-          <div class="feature-icon">🎬</div>
+          <div class="feature-icon">�</div>
           <h3>Анимированные фоны</h3>
           <p>Статика скучна. Залей видео, GIF или создай живой градиент</p>
         </div>
         
         <div class="feature-card">
-          <div class="feature-icon">🎵</div>
+          <div class="feature-icon">�</div>
           <h3>Музыкальный плеер</h3>
           <p>Пусть твоя страница звучит. Интеграция со Spotify или свои треки</p>
         </div>
         
         <div class="feature-card">
-          <div class="feature-icon">🔗</div>
+          <div class="feature-icon">🌐</div>
           <h3>Социальные ссылки</h3>
           <p>Одна ссылка вместо десяти. Собери все соцсети в одном месте</p>
         </div>
         
         <div class="feature-card">
-          <div class="feature-icon">💬</div>
+          <div class="feature-icon">✨</div>
           <h3>Комментарии</h3>
           <p>Общайся с аудиторией прямо на странице. Без лишних платформ</p>
         </div>
         
         <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
+          <div class="feature-icon">�</div>
           <h3>Защита</h3>
           <p>Твой контент под защитой. Модерация и фильтры от спама встроены</p>
         </div>
@@ -429,6 +538,27 @@
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Конфиденциальность</a>
+        <a href="#">Условия использования</a>
+        <a href="#">Поддержка</a>
+        <a href="#">API</a>
+      </div>
+      
+      <div class="footer-social">
+        <a href="#" class="social-icon">📱</a>
+        <a href="#" class="social-icon">💬</a>
+        <a href="#" class="social-icon">🐦</a>
+      </div>
+    </div>
+    
+    <div class="footer-copy">
+      © 2026 liquar.space — Создавай свое пространство в океане интернета
+    </div>
+  </footer>
 
   <script>
     const translations = {
