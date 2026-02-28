@@ -56,26 +56,6 @@
       50% { opacity: 0.9; }
     }
 
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 200px;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff" fill-opacity="0.1"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff" fill-opacity="0.1"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff" fill-opacity="0.15"/></svg>') repeat-x;
-      background-size: 1200px 120px;
-      animation: wave 15s linear infinite;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
-    }
-
-    @keyframes wave {
-      0% { background-position-x: 0; }
-      100% { background-position-x: 1200px; }
-    }
-
     .navbar {
       position: fixed;
       top: 20px;
@@ -449,5 +429,112 @@
       </div>
     </section>
   </main>
+
+  <script>
+    const translations = {
+      ru: {
+        login: 'Войти',
+        register: 'Зарегистрироваться бесплатно',
+        heroTitle: 'Присоединяйся и создавай свое bio',
+        heroSubtitle: 'liquar.space — персональный сервис по созданию bio с обширными возможностями',
+        btnStart: 'Создать',
+        featuresTitle: 'Возможности',
+        featuresSubtitle: 'Всё, что нужно для создания уникального профиля',
+        feature1Title: 'Полная кастомизация',
+        feature1Text: 'Настрой цвета, шрифты, фон и прозрачность под свой стиль',
+        feature2Title: 'Анимированные фоны',
+        feature2Text: 'Загружай GIF, видео или используй градиенты для фона',
+        feature3Title: 'Музыкальный плеер',
+        feature3Text: 'Добавь Spotify или загрузи свои MP3 треки',
+        feature4Title: 'Социальные ссылки',
+        feature4Text: 'Добавь ссылки на все свои соцсети в одном месте',
+        feature5Title: 'Комментарии',
+        feature5Text: 'Позволь посетителям оставлять комментарии',
+        feature6Title: 'Защита',
+        feature6Text: 'Фильтруй контент и защита от спама',
+        claimTitle: 'Забери свою ссылку',
+        claimSubtitle: 'Создай аккаунт за 30 секунд и получи персональную ссылку',
+        claimPlaceholder: 'liquar.space/username',
+        btnClaim: 'Забрать'
+      },
+      en: {
+        login: 'Login',
+        register: 'Sign up for free',
+        heroTitle: 'Join and create your bio',
+        heroSubtitle: 'liquar.space — personal bio creation service with extensive features',
+        btnStart: 'Create',
+        featuresTitle: 'Features',
+        featuresSubtitle: 'Everything you need to create a unique profile',
+        feature1Title: 'Full Customization',
+        feature1Text: 'Customize colors, fonts, backgrounds and transparency to your style',
+        feature2Title: 'Animated Backgrounds',
+        feature2Text: 'Upload GIFs, videos or use gradients for backgrounds',
+        feature3Title: 'Music Player',
+        feature3Text: 'Add Spotify or upload your MP3 tracks',
+        feature4Title: 'Social Links',
+        feature4Text: 'Add links to all your social media in one place',
+        feature5Title: 'Comments',
+        feature5Text: 'Let visitors leave comments',
+        feature6Title: 'Protection',
+        feature6Text: 'Filter content and spam protection',
+        claimTitle: 'Claim your link',
+        claimSubtitle: 'Create an account in 30 seconds and get your personal link',
+        claimPlaceholder: 'liquar.space/username',
+        btnClaim: 'Claim'
+      }
+    };
+
+    async function detectLanguage() {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const countryCode = data.country_code;
+        
+        const russianSpeakingCountries = ['RU', 'BY', 'KZ', 'UA', 'UZ', 'KG', 'TJ', 'AM', 'AZ', 'MD'];
+        const lang = russianSpeakingCountries.includes(countryCode) ? 'ru' : 'en';
+        
+        applyTranslations(lang);
+      } catch (error) {
+        const browserLang = navigator.language.split('-')[0];
+        const lang = browserLang === 'ru' ? 'ru' : 'en';
+        applyTranslations(lang);
+      }
+    }
+
+    function applyTranslations(lang) {
+      const t = translations[lang];
+      
+      document.querySelector('.btn-login').textContent = t.login;
+      document.querySelector('.btn-register').textContent = t.register;
+      document.querySelector('.hero-title').textContent = t.heroTitle;
+      document.querySelector('.hero-subtitle').textContent = t.heroSubtitle;
+      document.querySelector('.btn-start').textContent = t.btnStart;
+      document.querySelector('.features .section-title').textContent = t.featuresTitle;
+      document.querySelector('.features .section-subtitle').textContent = t.featuresSubtitle;
+      
+      const featureTitles = document.querySelectorAll('.feature-card h3');
+      const featureTexts = document.querySelectorAll('.feature-card p');
+      
+      featureTitles[0].textContent = t.feature1Title;
+      featureTexts[0].textContent = t.feature1Text;
+      featureTitles[1].textContent = t.feature2Title;
+      featureTexts[1].textContent = t.feature2Text;
+      featureTitles[2].textContent = t.feature3Title;
+      featureTexts[2].textContent = t.feature3Text;
+      featureTitles[3].textContent = t.feature4Title;
+      featureTexts[3].textContent = t.feature4Text;
+      featureTitles[4].textContent = t.feature5Title;
+      featureTexts[4].textContent = t.feature5Text;
+      featureTitles[5].textContent = t.feature6Title;
+      featureTexts[5].textContent = t.feature6Text;
+      
+      document.querySelector('.claim .section-title').textContent = t.claimTitle;
+      document.querySelector('.claim .section-subtitle').innerHTML = t.claimSubtitle + '<br>liquar.space/username';
+      document.querySelector('.claim-input').placeholder = t.claimPlaceholder;
+      document.querySelector('.btn-claim').textContent = t.btnClaim;
+    }
+
+    detectLanguage();
+  </script>
 </body>
 </html>
