@@ -164,6 +164,186 @@
         font-size: 13px;
       }
     }
+
+    .main-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 100px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 120px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .btn-start {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-start:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    }
+
+    .features {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 16px;
+      opacity: 0.8;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .claim {
+      padding: 80px 20px 120px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .claim-form {
+      display: flex;
+      gap: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .claim-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 16px 24px;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .claim-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .claim-input:focus {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-claim {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .btn-claim:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .claim-form {
+        flex-direction: column;
+      }
+
+      .btn-claim {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -181,5 +361,66 @@
       </div>
     </div>
   </nav>
+
+  <main class="main-content">
+    <section class="hero">
+      <h1 class="hero-title">Создай свой океанический профиль</h1>
+      <p class="hero-subtitle">Персональная link-in-bio страница с анимацией, музыкой и кастомизацией. Начни бесплатно!</p>
+      <button class="btn-start">✨ Начать бесплатно</button>
+    </section>
+
+    <section class="features">
+      <h2 class="section-title">Возможности</h2>
+      <p class="section-subtitle">Всё, что нужно для создания уникального профиля</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Полная кастомизация</h3>
+          <p>Настрой цвета, шрифты, фон и прозрачность под свой стиль</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎬</div>
+          <h3>Анимированные фоны</h3>
+          <p>Загружай GIF, видео или используй градиенты для фона</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎵</div>
+          <h3>Музыкальный плеер</h3>
+          <p>Добавь Spotify или загрузи свои MP3 треки</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Социальные ссылки</h3>
+          <p>Добавь ссылки на все свои соцсети в одном месте</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Комментарии</h3>
+          <p>Позволь посетителям оставлять комментарии</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Защита</h3>
+          <p>Фильтруй контент и защита от спама</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="claim">
+      <h2 class="section-title">Забери свою ссылку</h2>
+      <p class="section-subtitle">Создай аккаунт за 30 секунд и получи персональную ссылку<br>liquar.space/username</p>
+      
+      <div class="claim-form">
+        <input type="text" placeholder="liquar.space/username" class="claim-input">
+        <button class="btn-claim">Забрать</button>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
