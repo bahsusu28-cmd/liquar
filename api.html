@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API - liquar.space</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #001a33 0%, #002d4d 20%, #003d5c 40%, #004d6b 60%, #005580 80%, #006994 100%);
+      background-size: 400% 400%;
+      animation: oceanWave 20s ease-in-out infinite;
+      min-height: 100vh;
+      padding: 100px 20px 50px;
+    }
+    @keyframes oceanWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      padding: 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 42px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #0045FF, #00D6FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 { font-size: 24px; margin: 30px 0 15px; color: #00D6FF; }
+    p { line-height: 1.8; margin-bottom: 20px; opacity: 0.9; }
+    code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      color: #00D6FF;
+    }
+    pre {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid rgba(0, 150, 255, 0.2);
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>API Документация</h1>
+    
+    <p>liquar.space предоставляет REST API для интеграции с вашими приложениями и сервисами.</p>
+
+    <h2>Скоро</h2>
+    <p>API находится в разработке и будет доступен в ближайшее время. Следите за обновлениями!</p>
+
+    <h2>Планируемые возможности</h2>
+    <p><strong>Получение данных профиля</strong><br>
+    <code>GET /api/v1/profile/{username}</code><br>
+    Получить публичную информацию о профиле пользователя.</p>
+
+    <p><strong>Обновление профиля</strong><br>
+    <code>PUT /api/v1/profile</code><br>
+    Обновить данные своего профиля (требуется авторизация).</p>
+
+    <p><strong>Статистика</strong><br>
+    <code>GET /api/v1/stats/{username}</code><br>
+    Получить статистику посещений и кликов.</p>
+
+    <p><strong>Загрузка файлов</strong><br>
+    <code>POST /api/v1/upload</code><br>
+    Загрузить изображения, видео или музыку.</p>
+
+    <h2>Аутентификация</h2>
+    <p>API будет использовать токены доступа. Вы сможете сгенерировать токен в настройках профиля.</p>
+
+    <pre><code>Authorization: Bearer YOUR_API_TOKEN</code></pre>
+
+    <h2>Хотите ранний доступ?</h2>
+    <p>Свяжитесь с нами в поддержке: <a href="https://t.me/blanecm" style="color: #00D6FF;">@blanecm</a></p>
+
+    <a href="index.html" class="back-btn">← Вернуться на главную</a>
+  </div>
+</body>
+</html>
